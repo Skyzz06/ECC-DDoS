@@ -1,4 +1,4 @@
-# EagleCyberCrew DDoS Tool 
+# EagleCyberCrew DDoS Tool V2
 
 This tool is using python3
 
@@ -6,7 +6,7 @@ This tool is using python3
 
 ```bash
 
-git clone https://github.com/Skyzz2/ECC-DDoS
+git clone https://github.com/Skyzz06/ECC-DDoS
 
 cd ECC-DDoS
 
@@ -16,7 +16,7 @@ cd ECC-DDoS
 
 ```
 
-python3 main.py (target)
+python3 main.py
 
 ```
 
